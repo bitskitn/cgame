@@ -1,0 +1,92 @@
+# Resources
+
+  When the game is compiled, a list of resources is used to
+  generate a C header file that contains identifiers for
+  indices into pre-allocated resource lists. For example,
+  an identifier like `EN_PLAYER` may be defined as `0`,
+  which says that it's the 0th entry in the entity list.
+
+  ## Effects
+
+    The `effect_list` file is used to construct the effect
+    list. Each line in the file is a single entry consisting
+    of an effect name and a file name separated by a colon.
+    Both are allowed to contain spaces, but leading and
+    trailing whitespace is trimmed off. An effect name is
+    converted to an identifier by converting it to uppercase,
+    replacing the spaces with underscores, and adding a
+    prefix of `EFF_`. E.g. `a flame` becomes `EFF_A_FLAME`.
+    In the debug build of the game, the original effect name
+    is included as a string in a list of debug strings.
+
+    All effects are hand coded and primarily used for
+    particle effects like rain, snow, sparks, explosions,
+    flames, splashes, puffs of dust, etc.
+
+  ## Entities
+
+    The `entity_list` file works exactly the same as the
+    `effect_list` file, but entity identifiers are given a
+    prefix of `EN_` instead of `EFF_`.
+
+    Every entity has a tag number, and all entities with the
+    same tag number are doubly-linked together for forward
+    and backward iteration. It's important to note that this
+    has absolutely nothing to do with the memory layout.
+
+    Every entity also has a group number, but entities with
+    the same group number are not linked together in any way.
+    This means that to list all of the entities in the same
+    group, you need to iterate over all of the entities. The
+    main purpose of groups is to allow for separate render
+    passes. A camera might, for example, render everything
+    but transparent effects and then do those afterwards. It
+    may also treat each group as a different room and only
+    render one room at a time. This allows for all of the
+    entities in a scene to be loaded, while saving processing
+    time by not updating or rendering things that are in a
+    different room.
+
+    Every entity also has a pointer to the first entity in a
+    singly-linked list of observers, which allows it to
+    notify all of them when it's despawns. The way that the
+    singly-linked observer lists are set up is that every
+    entity has a pair of pointers: one to an entity that it's
+    observing and the other to the next observer. This may
+    seem a bit strange, but it's actually a much easier way
+    of avoiding dead pointers than having UIDs.
+
+  ## Scenes
+
+    The `scene_list` file works exactly the same as the
+    `effect_list` file, but scene identifiers are given a
+    prefix of `SC_` instead of `EFF_` and the first entry in
+    the `scene_list` file is the first loaded scene.
+
+    Scenes have lists of entrances and exits for entities,
+    and can spawn entities as either actors or props. An
+    entity spawned as an actor is both updated and rendered
+    each frame, but a prop is only rendered. One purpose of
+    spawning an entity as a prop is so that other entities
+    are able to control it.
+
+  ## Sounds
+
+    All sounds are organized into sound banks, and the raw
+    wavedata is stored in a separate wavetable. Two or more
+    sounds may use the same wavedata, but play it back at
+    different frequencies or with different effects.
+
+  ## Music
+
+    Every track of music is associated with an instrument
+    set, and instruments are assigned to channels using the
+    `program change` command.
+
+    An instrument set is associated with a specific sound
+    bank, and each instrument in the set has a keymap that
+    maps ranges of notes to sounds in the bank. This is done
+    so that you can easily switch the sound bank of an
+    instrument set to get different tones for the same music.
+
+    Dynamic music is supported....how?

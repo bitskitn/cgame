@@ -1,0 +1,13 @@
+# Compilation
+
+  ## Effects and Entities
+
+    Effects and entities are both hand-coded in C and
+    compiled to bytecode using the `cgcc` utility. This makes
+    it much easier to distribute expansions, updates, or
+    modifications. The use of a virtual machine also makes
+    the engine more secure against crashes.
+
+    Using C instead of a scripting language also means that
+    in special cases, effects and entities can be compiled
+    directly to native code without changing anything.

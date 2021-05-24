@@ -1,0 +1,16 @@
+# Utilities
+
+  # The Utilities
+
+    All of the graphical utilities are written in Tcl/Tk,
+    because trying to create an extendable editor in C is
+    migraine inducing. Sure, there are other options out
+    there, but Tcl/Tk was *made* for this kind of stuff.
+
+    For one thing, with the wish shell, there's no
+    screwing around with event loops, signals, and
+    callbacks. It also integrates with the existing shell
+    environment, so executing external tools is easy.
+    Graphical user interfaces are event-driven, so
+    performance also isn't an issue. The program spends a
+    majority of it's time waiting for user input.

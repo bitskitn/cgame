@@ -1,0 +1,36 @@
+# Graphics
+
+  To do graphics in an efficient and portable way, the game
+  engine has it's own graphics bytecode. 3D graphics
+  resources are pre-compiled to this bytecode. In the case
+  of 3D graphics generated at runtime, you need to map VRAM
+  addresses to the vertices, triangles, matrices, and
+  texture images. Also, instead of just calling functions,
+  you generate entire instruction lists, give them VRAM
+  addresses, and schedule them to be executed.
+
+  ## The Vertex Cache
+
+    Due to the instruction encoding, the vertex cache (also
+    called the feedback vertex buffer) has a maximum size of
+    4,096 vertices. Given that each vertex is 16 bytes in
+    size, this means that the maximum size of the vertex
+    cache is 64 KiB. In practice though, this is typically
+    limited to a much smaller vertex cache size of 32
+    vertices; which would be 512 bytes in size.
+
+    Vertex skinning is done by switching modelview matrices
+    between gLoadVerts commands before doing gDrawTris.
+
+  ## Drawing Triangles
+
+    Due to the instruction encoding, the maximum number of
+    triangles that can be drawn with a single instruction is
+    65,536. Each triangle consists of 3 indices into the
+    vertex cache, and the size of each index is indSize. In
+    practice, the indSize is pretty much always 1 because of
+    the conventionally limited size of the vertex cache.
+
+    Texture images and render settings (such as color/alpha
+    combiner functions and blend functions) are often
+    switched between gDrawTris commands.

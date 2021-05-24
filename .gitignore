@@ -1,0 +1,7 @@
+*.PBP
+*.exe
+*.elf
+*.o
+*.raw
+.kdev4
+game

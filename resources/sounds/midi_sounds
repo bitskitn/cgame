@@ -1,0 +1,99 @@
+envelope percEnv
+{
+    attackTime		= 0;
+    attackVolume	= 127;
+    decayTime		= 0;
+    decayVolume		= 127;
+    releaseTime		= 100000;
+}
+
+envelope defaultenv
+{
+    attackTime		= 0;
+    attackVolume	= 127;
+    decayTime		= 500000;
+    decayVolume		= 100;
+    releaseTime		= 200000;
+}
+
+
+/*   Piano44K Instrument   */
+
+
+envelope Piano44KEnv
+{
+    attackTime		= 0;
+    attackVolume	= 127;
+    decayTime		= 4000000;
+    decayVolume		= 0;
+    releaseTime		= 400000;
+}
+
+sound Piano44K00
+{
+    use ("GMPiano_C2.aifc");
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K01
+{
+    use ("GMPiano_Bb2.aifc");    
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K02
+{
+    use ("GMPiano_F3.aifc");
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K03
+{
+    use ("GMPiano_C4.aifc");    
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K04
+{
+    use ("GMPiano_G4.aifc");
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K05
+{
+    use ("GMPiano_C5.aifc");
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K06
+{
+    use ("GMPiano_G5.aifc");
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+sound Piano44K07
+{
+    use ("GMPiano_C6.aifc");
+    pan    = 64;
+    volume = 127;
+    envelope = Piano44KEnv;
+}
+
+bank GenMidiBank
+{
+    sampleRate		= 44100;
+}

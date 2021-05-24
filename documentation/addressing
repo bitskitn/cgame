@@ -1,0 +1,41 @@
+# Addressing
+
+  ## VROM and ROM
+
+    Once all of the resources are compiled, they're packed
+    together into a large block of memory called a VROM. This
+    means that every resource has a unique VROM address, and
+    these VROM addresses are used to finish building the
+    resource lists. When a piece of code says something like
+    `spawnEntity(EN_BIRD);`, the game engine looks up the
+    entry in the entity list to get the VROM address of the
+    resource so it can load it into RAM.
+
+    In a fully uncompressed ROM, the ROM addresses of all the
+    resources are the same as the VROM addresses. However, in
+    a compressed ROM, the addresses are usually different. To
+    deal with this, a list is generated that maps ROM
+    addresses and sizes to VROM addresses and sizes. The
+    entries in this list are sorted by VROM address to allow
+    for binary search; and the game engine knows that if the
+    ROM size is smaller than the VROM size, the resource
+    needs to be decompressed when it's loaded.
+
+    So to recap, a resource identifier corresponds to an
+    resource list index, which is used to look up a VROM
+    address, which is then used to look up a ROM address. The
+    game engine conserves memory by only loading the
+    resources that it currently needs.
+
+  ## VRAM and RAM
+
+    Most modern architectures are 64-bit, but using a 64-bit
+    address space is ridiculously wasteful when most programs
+    don't even use 0.5 GiB of RAM. Every RAM pointer wastes at
+    least 4 bytes. This may not seem like a big deal, but the
+    engine also uses a bytecode to do graphics, and having
+    pointers be 64-bit would make instruction sizes huge.
+
+    So the game engine instead uses 32-bit VRAM addresses and
+    has a software TLB that maps VRAM addresses to RAM
+    addresses.

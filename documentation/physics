@@ -1,0 +1,21 @@
+# Physics
+
+  ## Entity Colliders
+
+    The colliders of most entities are approximated with
+    axis-aligned (upright) cylinders, though a few may be
+    approximated with planes. The choice to use cylinders is
+    based partly on the fact that collision can be simplified
+    by breaking it down into a circular xz part and a linear
+    y part; or ceilings/floors and walls.
+
+  ## Terrain Colliders
+
+    Say for example that you need the player to walk over a
+    hill. All you need to do is move the player in an xz
+    direction, figure out what polygon is directly below the
+    player, cast a ray through it to determine the height
+    that the player needs to be at, and then bump the player
+    up to the correct height. This type of correction could
+    even be done automatically by the physics engine, which
+    would make ground-based entities easier to program.

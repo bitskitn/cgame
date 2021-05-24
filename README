@@ -1,0 +1,13 @@
+# How to Build
+
+  To build the game, run `make TARGET=<TARGET>` in a
+  terminal, where `<TARGET>` is the name of the target
+  platform. For example, if you want to target Windows, run
+  `make TARGET=windows`.
+
+  By default, the game is compiled in debug mode and
+  optimized for the shortest compilation time. To override
+  this, add the option `BUILD=release`. This will optimize
+  for runtime performance and strip all of the symbols from
+  the executable. Stripping the symbols reduces it's size
+  and makes it a little harder to reverse engineer.

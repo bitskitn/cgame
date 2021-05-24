@@ -1,0 +1,239 @@
+#include "midi_sounds"
+
+/*   Piano44K Instrument   */
+
+keymap Piano44K00key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 0;
+    keyMax      = 41;
+    keyBase     = 36;  /* 51; */
+    detune      = 0;
+    sound       = Piano44K00;
+}
+
+keymap Piano44K01key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 42;
+    keyMax      = 49;
+    keyBase     = 46; /* 63; */
+    detune      = 0;
+    sound       = Piano44K01;
+}
+
+keymap Piano44K02key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 50;
+    keyMax      = 57;
+    keyBase     = 53; /* 67; */
+    detune      = 0;
+    sound       = Piano44K02;
+}
+
+keymap Piano44K03key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 58;
+    keyMax      = 63;
+    keyBase     = 60; /* 72; */
+    detune      = 0;
+    sound       = Piano44K03;
+}
+
+keymap Piano44K04key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 64;
+    keyMax      = 69;
+    keyBase     = 67; /* 79; */
+    detune      = 0;
+    sound       = Piano44K04;
+}
+
+keymap Piano44K05key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 70;
+    keyMax      = 75;
+    keyBase     = 72; /* 84; */
+    detune      = 0;
+    sound       = Piano44K05;
+}
+
+keymap Piano44K06key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 76;
+    keyMax      = 81;
+    keyBase     = 79; /* 91; */
+    detune      = 0;
+    sound       = Piano44K06;
+}
+
+keymap Piano44K07key
+{
+    velocityMin = 0;
+    velocityMax = 127;
+    keyMin      = 82;
+    keyMax      = 96; /* 111; */
+    keyBase     = 84; /* 99; */
+    detune      = 0;
+    sound       = Piano44K08;
+}
+
+instrument Piano44K
+{
+    volume       = 127;
+    pan          = 64;
+
+    keymap  = Piano44K00key;
+    keymap  = Piano44K01key;
+    keymap  = Piano44K02key;
+    keymap  = Piano44K03key;
+    keymap  = Piano44K04key;
+    keymap  = Piano44K05key;
+    keymap  = Piano44K06key;
+    keymap  = Piano44K07key;
+}
+
+set GenMidiSet
+{
+    bank = GenMidiBank;
+    instrument [0] = Piano44K;
+    instrument [1] = GrandPiano; 
+    instrument [2] = ElecGrand;
+    instrument [3] = HonkyTonk;
+    instrument [4] = ElecPiano1;
+    instrument [5] = ElecPiano2; 
+    instrument [6] = Harpsichord;
+    instrument [7] = Clavinet;
+    instrument [8] = Celesta;
+    instrument [9] = Glockenspiel;
+    instrument [10] = MusicBox;
+    instrument [11] = Vibraphone;
+    instrument [12] = Marimba; 
+    instrument [13] = Xylophone;
+    instrument [14] = TubularBells;
+    instrument [15] = Dulcimer;
+    instrument [16] = DrawBarOrgan;
+    instrument [17] = PercOrgan;
+    instrument [18] = RockOrgan;
+    instrument [19] = ChurchOrgan;
+    instrument [20] = ReedOrgan;
+    instrument [21] = Accordian;
+    instrument [22] = Harmonica;
+    instrument [23] = Bandoneon;
+    instrument [24] = NylonGtr;
+    instrument [25] = SteelGtr;
+    instrument [26] = JazzGtr;
+    instrument [27] = CleanGtr;
+    instrument [28] = MutedGtr;
+    instrument [29] = OvrDrvGtr;
+    instrument [30] = DistGtr;
+    instrument [31] = GtrHarmonic;
+    instrument [32] = AcBass;
+    instrument [33] = FngBass;
+    instrument [34] = PickBass;
+    instrument [35] = FretlessBass;
+    instrument [36] = Slap1Bass;
+    instrument [37] = Slap2Bass;
+    instrument [38] = Synth1Bass;
+    instrument [39] = Synth2Bass;
+    instrument [40] = Violin;
+    instrument [41] = Viola;
+    instrument [42] = Cello;
+    instrument [43] = Contrabass;
+    instrument [44] = TremeloStrg;
+    instrument [45] = PizzStrg;
+    instrument [46] = Harp;
+    instrument [47] = Timpani;
+    instrument [48] = StrgEnsmbl;
+    instrument [49] = SlowStrg;
+    instrument [50] = Synth1Strg;
+    instrument [51] = Synth2Strg;
+    instrument [52] = ChoirAhhs; 
+    instrument [53] = ChoirOohs;
+    instrument [54] = SynthVoice;
+    instrument [55] = OrchHit;
+    instrument [56] = Trumpet;
+    instrument [57] = Trombone;
+    instrument [58] = Tuba;
+    instrument [59] = MuteTmpt;
+    instrument [60] = FrHorn;
+    instrument [61] = BrassSection;
+    instrument [62] = Synth1Brass;
+    instrument [63] = Synth2Brass;
+    instrument [64] = SopSax;
+    instrument [65] = AltoSax;
+    instrument [66] = TenorSax;
+    instrument [67] = BariSax;
+    instrument [68] = Oboe;
+    instrument [69] = EngHorn;
+    instrument [70] = Bassoon;
+    instrument [71] = Clarinet;
+    instrument [72] = Piccolo;
+    instrument [73] = Flute;
+    instrument [74] = Recorder;
+    instrument [75] = Panflute;
+    instrument [76] = BottleBlow;
+    instrument [77] = Shakuhachi;
+    instrument [78] = Whistle;
+    instrument [79] = Ocarina;
+    instrument [80] = SqrWave;
+    instrument [81] = SawWave;
+    instrument [82] = Calliope;
+    instrument [83] = ChiffLead;
+    instrument [84] = Charang;
+    instrument [85] = SoloVoice;
+    instrument [86] = SawFifths;
+    instrument [87] = BassLead;
+    instrument [88] = NewAgePad;
+    instrument [89] = WarmPad;
+    instrument [90] = Polysynth;
+    instrument [91] = SpaceVoice;
+    instrument [92] = BowedGlass;
+    instrument [93] = MetalicPad;
+    instrument [94] = HaloPad;
+    instrument [95] = SweepPad;
+    instrument [96] = IceRain;
+    instrument [97] = SoundTrack;
+    instrument [98] = Crystal;
+    instrument [99] = Atmosphere;
+    instrument [100] = Brightness;
+    instrument [101] = Goblins;
+    instrument [102] = EchoDrops;
+    instrument [103] = StarTheme;
+    instrument [104] = Sitar;
+    instrument [105] = Banjo;
+    instrument [106] = Shamisen;
+    instrument [107] = Koto;
+    instrument [108] = Kalimba;
+    instrument [109] = Bagpipes;
+    instrument [110] = Fiddle;
+    instrument [111] = Shanai;
+    instrument [112] = TinkleBell;
+    instrument [113] = Agogo;
+    instrument [114] = SteelDrums;
+    instrument [115] = Woodblock;
+    instrument [116] = TaikoDrum;
+    instrument [117] = MelodicTom;
+    instrument [118] = SynthDrum;
+    instrument [119] = ReverseCym;
+    instrument [120] = GtrFretNoise;
+    instrument [121] = Breathnoise;
+    instrument [122] = Seashore;
+    instrument [123] = Birdtweet;
+    instrument [124] = Telephone;
+    instrument [125] = Helicopter;
+    instrument [126] = Applause;
+    instrument [127] = GunShot;
+}
